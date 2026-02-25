@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>PokerLab</title>
+</head>
+
+<body>
+    <div class="app">
+        <div>
+            <!-- Ajoute 'active' au premier bouton -->
+            <button id="btn-cote" class="tab-btn active">Cote Pot</button>
+            <button id="btn-ko" class="tab-btn">Calculateur KO</button>
+        </div>
+        <div id="view-odds">
+            <input type="number" id="input-pot" placeholder="Taille du Pot">
+            <input type="number" id="input-call" placeholder="Montant à Payer">
+            <span id="resultat-cote">0%</span>
+        </div>
+    </div>
+    <div id="view-ko" class="hidden">
+        <input type="number">
+        <input type="number">
+        <input type="number">
+        <span></span>
+    </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>

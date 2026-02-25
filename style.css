@@ -1,0 +1,65 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: white;
+    --accent: #10b981;
+    --text-muted: #94a3b8;
+    /* <-- Ajoute ceci pour le texte inactif */
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    max-width: 450px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 1. Le bouton de base pour TOUS les onglets */
+.tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    /* L'astuce est ici : on prépare la place pour la ligne */
+    color: var(--text-muted);
+    /* ou la couleur que tu as choisie pour le texte gris */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.5s ease-in-out;
+    /* Ajoute ceci pour que la ligne verte apparaisse en douceur ! */
+}
+
+/* 2. Le bouton quand il est cliqué (actif) */
+.tab-btn.active {
+    background-color: transparent;
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    /* La ligne devient verte (#10b981) */
+    border-radius: 0px;
+}
+
+span {
+    color: white;
+}
+
+#view-odds,
+#view-ko {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
