@@ -10,23 +10,28 @@
 
 <body>
     <div class="app">
-        <div>
-            <!-- Ajoute 'active' au premier bouton -->
-            <button id="btn-cote" class="tab-btn active">Cote Pot</button>
-            <button id="btn-ko" class="tab-btn">Calculateur KO</button>
+        <div class="calculator-container">
+            <!-- Onglets -->
+            <div>
+                <button id="btn-cote" class="tab-btn active">Cote Pot</button>
+                <button id="btn-ko" class="tab-btn">Calculateur KO</button>
+            </div>
+
+            <!-- Vue : Cote du Pot -->
+            <div id="view-odds" class="view-container">
+                <input type="number" id="input-pot" placeholder="Taille du Pot">
+                <input type="number" id="input-call" placeholder="Montant à Payer">
+                <span id="resultat-cote">0%</span>
+            </div>
+
+            <!-- Vue : Calculateur KO -->
+            <div id="view-ko" class="view-container hidden">
+                <input type="number" id="input-buyin" placeholder="Buy-in Total ($)">
+                <input type="number" id="input-stack" placeholder="Stack de départ">
+                <input type="number" id="input-bounty" placeholder="Prime KO ($)">
+                <span id="resultat-ko">0</span>
+            </div>
         </div>
-        <div id="view-odds">
-            <input type="number" id="input-pot" placeholder="Taille du Pot">
-            <input type="number" id="input-call" placeholder="Montant à Payer">
-            <span id="resultat-cote">0%</span>
-        </div>
-    </div>
-    <div id="view-ko" class="hidden">
-        <input type="number">
-        <input type="number">
-        <input type="number">
-        <span></span>
-    </div>
     </div>
     <script src="/script.js"></script>
 </body>

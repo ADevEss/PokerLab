@@ -1,65 +1,116 @@
-:root {
-    --bg-color: #0f172a;
-    --text-color: white;
-    --accent: #10b981;
-    --text-muted: #94a3b8;
-    /* <-- Ajoute ceci pour le texte inactif */
-}
+ :root {
+     --bg-color: #0f172a;
+     --text-color: #f8fafc;
+     --accent: #10b981;
+     --bg-container: #1e293b;
+ }
 
-body {
-    background-color: var(--bg-color);
-    display: flex;
-    justify-content: center;
-    max-width: 450px;
-}
+ body {
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     font-family: Arial, sans-serif;
+     margin: 0;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /* Centre verticalement sur l'écran */
+ }
 
-.hidden {
-    display: none;
-}
+ /* Conteneur principal */
+ .app {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     max-width: 450px;
+ }
 
-/* 1. Le bouton de base pour TOUS les onglets */
-.tab-btn {
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    /* L'astuce est ici : on prépare la place pour la ligne */
-    color: var(--text-muted);
-    /* ou la couleur que tu as choisie pour le texte gris */
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.5s ease-in-out;
-    /* Ajoute ceci pour que la ligne verte apparaisse en douceur ! */
-}
+ /* La boîte qui englobe tout (Ton excellente idée !) */
+ .calculator-container {
+     background-color: var(--bg-container);
+     padding: 25px;
+     border-radius: 12px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+     width: 90%;
+     box-sizing: border-box;
+ }
 
-/* 2. Le bouton quand il est cliqué (actif) */
-.tab-btn.active {
-    background-color: transparent;
-    color: var(--accent);
-    border-bottom: 3px solid var(--accent);
-    /* La ligne devient verte (#10b981) */
-    border-radius: 0px;
-}
+ /* Conteneur des boutons d'onglets */
+ .calculator-container>div:first-child {
+     display: flex;
+     justify-content: center;
+     gap: 15px;
+     margin-bottom: 25px;
+ }
 
-span {
-    color: white;
-}
+ .tab-btn {
+     background: transparent;
+     border: none;
+     color: #94a3b8;
+     padding: 10px 15px;
+     cursor: pointer;
+     border-bottom: 2px solid transparent;
+     font-size: 16px;
+     font-weight: bold;
+     transition: all 0.3s ease;
+ }
 
-#view-odds,
-#view-ko {
-    animation: fadeIn 0.3s ease-in-out;
-}
+ .tab-btn.active {
+     border-bottom: 2px solid var(--accent);
+     color: var(--accent);
+ }
 
+ /* Le moule pour centrer le contenu des écrans */
+ .view-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 15px;
+ }
 
+ input {
+     width: 85%;
+     padding: 12px;
+     border-radius: 8px;
+     border: 1px solid #334155;
+     background-color: #0f172a;
+     color: white;
+     font-size: 16px;
+     outline: none;
+ }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
+ input:focus {
+     border-color: var(--accent);
+     /* Joli effet quand on clique sur l'input */
+ }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+ span {
+     font-size: 28px;
+     font-weight: bold;
+     color: var(--accent);
+     margin-top: 15px;
+ }
+
+ /* La classe magique (Prioritaire grâce à !important) */
+ .hidden {
+     display: none !important;
+ }
+
+ /* L'animation d'apparition douce */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(5px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ #view-odds,
+ #view-ko {
+     animation: fadeIn 0.3s ease-in-out;
+ }
